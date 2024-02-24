@@ -29,7 +29,7 @@ export abstract class BaseController {
     protected bindRoutes(routes: IControllerRoute[]) {
         routes.forEach((route: IControllerRoute) => {
             this.logger.log(`[${route.method}] ${route.path}`);
-            const handler = route.func.bind(this);
+            const handler = route?.func.bind(this);
             this.router[route.method](route.path, handler);
         })
     }
