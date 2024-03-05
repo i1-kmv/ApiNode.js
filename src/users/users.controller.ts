@@ -43,6 +43,6 @@ export class UsersController extends BaseController implements IUsersInterface {
 		if (!result) {
 			return next(new HttpError(422, 'User exist', 'register'));
 		}
-		this.ok(res, { email: result.email, name: result.name });
+		this.ok(res, { email: result.email, name: result.name, id: result.id });
 	}
 }
