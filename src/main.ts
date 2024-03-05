@@ -12,19 +12,18 @@ import { ConfigService } from './config/config.service';
 import { IUserService } from './users/user.service.interface';
 import { UsersService } from './users/users.service';
 
-
 export interface BootstrapReturn {
 	app: App;
 	appContainer: Container;
 }
 
 export const appBindings = new ContainerModule((bind: interfaces.Bind) => {
-	bind<ILogger>(TYPES.ILogger).to(LoggerService);
-	bind<IExceptionFilter>(TYPES.ExeptionFilter).to(ExeptionFilter);
-	bind<IUsersInterface>(TYPES.UserController).to(UsersController);
-	bind<IConfigService>(TYPES.ConfigService).to(ConfigService);
-	bind<IUserService>(TYPES.UserService).to(UsersService);
-	bind<App>(TYPES.Application).to(App);
+	bind<ILogger>(TYPES.ILogger).to(LoggerService).inSingletonScope();
+	bind<IExceptionFilter>(TYPES.ExeptionFilter).to(ExeptionFilter).inSingletonScope();
+	bind<IUsersInterface>(TYPES.UserController).to(UsersController).inSingletonScope();
+	bind<IConfigService>(TYPES.ConfigService).to(ConfigService).inSingletonScope();
+	bind<IUserService>(TYPES.UserService).to(UsersService).inSingletonScope();
+	bind<App>(TYPES.Application).to(App).inSingletonScope();
 });
 
 function bootstrap(): BootstrapReturn {
