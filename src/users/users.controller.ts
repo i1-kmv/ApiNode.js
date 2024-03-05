@@ -8,7 +8,7 @@ import 'reflect-metadata';
 import { IUsersInterface } from './users.interface';
 import { UserLoginDto } from './dto/user-login.dto';
 import { UserRegisterDto } from './dto/user-register.dto';
-import { User } from './user-entity';
+import { User } from './user.entity';
 import { UsersService } from './users.service';
 import { ValidateMiddleware } from '../common/validate.middleware';
 
